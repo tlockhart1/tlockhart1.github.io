@@ -1,8 +1,8 @@
 
-import { CIRCLE } from './circle.js';
-import { RECTANGLE } from './rectangle.js';
-import * as COLLISION from './collisiondetection.js';
-import * as RAND from './randfxns.js';
+import { CIRCLE } from 'circle.js';
+import { RECTANGLE } from 'rectangle.js';
+import * as COLLISION from 'collisiondetection.js';
+import * as RAND from 'randfxns.js';
 
 
 let objects = [];
