@@ -50,6 +50,7 @@ export function _computeCollision(obj1, obj2, delta_t){
 		console.log("cx: " + cx);
 		console.log("cy: " + cy);
 		console.log("dot: " + pdotv);*/
+		// these collisions are perfectly elastic -- no energy is lost
 		obj1.vx -= (impulse * obj2.getMass() * cx);
  		obj1.vy -= (impulse * obj2.getMass() * cy); 
 		obj2.vx += (impulse * obj1.getMass() * cx);
