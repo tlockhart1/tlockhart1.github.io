@@ -29,9 +29,16 @@ function initCanvas(num){
 
 function initObjects(ctx, scale){
     var objects_list = [];
+    // TODO: I need to fix rectangle/rectangle collisions before including them in the sim.
+    // Need to add rotation to rectangle/rectangle collisions that happen at points far from their center
+    /*
     for(var i = 0; i < 20 / scale; i++){
         if(Math.floor(RAND.randFromRange(0, 3)) == 1) objects_list.push(CIRCLE.genCircle(ctx.canvas.width, ctx.canvas.height, scale, "black"));
         else objects_list.push(RECTANGLE.genRectangle(ctx.canvas.width, ctx.canvas.height, scale, "black"));
+    }
+    */
+    for(var i = 0; i < 20 / scale; i++){
+        objects_list.push(CIRCLE.genCircle(ctx.canvas.width, ctx.canvas.height, scale, "black"));
     }
     return objects_list;
 }
