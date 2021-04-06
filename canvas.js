@@ -11,6 +11,7 @@ let selected = null;
 let selected_obj = null;
 let notifications = false;
 let animating = false;
+let objscale = 1.0;
 let track = {
 	"rectangle": false,
 	"circle": false,
@@ -78,9 +79,22 @@ $(document).ready(() => {
 			selected_obj = null;
 		}
 	});
+	// listen for scroll event to adjust object scale
+	$(document).ready(function(){
+		$('#foo').bind('mousewheel', function(e){
+			if(e.originalEvent.wheelDelta > 0) {
+				objscale += 0.015;
+				console.log("increase, scale = " + objscale);
+			}
+			else{
+				objscale -= 0.015;
+				console.log("decrease, scale = " + objscale);
+			}
+		});
+	});
 	$('#rectangle').click(() => selected = "rectangle");
 	$('#rcircle').click(() => {
-		// this is async and processes after the onclick function...
+		// this is async and processes after the click function...
 		selected = "circle";
 		getObjectInput(genRcircle());
 	});
