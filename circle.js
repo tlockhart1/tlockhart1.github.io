@@ -12,7 +12,7 @@ export class CIRCLE extends OBJECT{
 	}
 	draw(ctx){
 		ctx.beginPath();
-		ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+		ctx.arc(this.x, this.y, this.radius * this.xscale, 0, 2 * Math.PI);
 		if(this.collision && this.collision_indicator)
 			ctx.fillStyle = "red";
 		if(this.selected)

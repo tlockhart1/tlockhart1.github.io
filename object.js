@@ -23,6 +23,14 @@ class OBJECT{
     isSolid(){
         return this.solid;
     }
+	upscale(amount){
+		this.xscale += amount;
+		this.yscale += amount;
+	}
+	downscale(amount){
+		this.xscale -= amount;
+		this.yscale -= amount;
+	}
 	toggleSelected(){
 		return (this.selected = !this.selected);
 	}

@@ -42,13 +42,14 @@ export class RECTANGLE extends OBJECT{
 		ctx.fillRect(ox, oy, this.width, this.height);
 		ctx.restore();
 		*/
-		ctx.fillRect(ox, oy, this.width, this.height);
+		ctx.fillRect(ox, oy, this.width * this.xscale, this.height * this.yscale);
 		this.collision = false;
 		ctx.fillStyle = this.color;
     }
     static genRectangle(field_width, field_height, scale, color){
         var new_rectangle = new RECTANGLE
             (
+				// add scaling here?
                 RAND.randFromRange(10 * scale, 200 * scale),
                 RAND.randFromRange(10 * scale, 200 * scale),
 				"rectangle",
