@@ -86,7 +86,7 @@ $(document).ready(() => {
 			objscale += 0.015;
 			console.log("increase, scale = " + objscale);
 		}
-		else{
+		else if(e.originalEvent.wheelDelta < 0){
 			objscale -= 0.015;
 			console.log("decrease, scale = " + objscale);
 		}
