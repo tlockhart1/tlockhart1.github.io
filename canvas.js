@@ -90,9 +90,6 @@ $(document).ready(() => {
 				objscale -= 0.015;
 				console.log("decrease, scale = " + objscale);
 			}
-			objects.forEach(object => {
-				object.rescale(objscale);
-			});
 		});
 	});
 	$('#rectangle').click(() => selected = "rectangle");
@@ -387,6 +384,7 @@ function path(){
 		canvas.width,
 		canvas.height
 	);	
+	objects.forEach(object => object.rescale(objscale));
 	objects.forEach((obj) => obj.draw(ctx));
 }
 
