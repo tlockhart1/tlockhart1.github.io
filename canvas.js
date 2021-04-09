@@ -84,12 +84,16 @@ $(document).ready(() => {
 		$('#dacanvas').bind('mousewheel', function(e){
 			if(e.originalEvent.wheelDelta > 0) {
 				objscale += 0.015;
-				ctx.scale(objscale, objscale)
+				objects.forEach(object => {
+					object.upscale(objscale);
+				});
 				console.log("increase, scale = " + objscale);
 			}
 			else{
 				objscale -= 0.015;
-				ctx.scale(objscale, objscale)
+				objects.forEach(object => {
+					object.downscale(objscale);
+				});
 				console.log("decrease, scale = " + objscale);
 			}
 		});
