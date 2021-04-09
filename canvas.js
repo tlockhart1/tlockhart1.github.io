@@ -82,13 +82,14 @@ $(document).ready(() => {
 	});
 	// listen for scroll event to adjust object scale
 	$('#dacanvas').bind('mousewheel', function(e){
+		console.log(e.originalEvent.wheelDelta)
 		if(e.originalEvent.wheelDelta > 0) {
 			objscale += 0.015;
-			console.log("increase, scale = " + objscale);
+//			console.log("increase, scale = " + objscale);
 		}
 		else if(e.originalEvent.wheelDelta < 0){
 			objscale -= 0.015;
-			console.log("decrease, scale = " + objscale);
+	//		console.log("decrease, scale = " + objscale);
 		}
 		scalechanged = true;
 	});
