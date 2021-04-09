@@ -91,7 +91,7 @@ $(document).ready(() => {
 				console.log("decrease, scale = " + objscale);
 			}
 			objects.forEach(object => {
-				object.downscale(objscale);
+				object.rescale(objscale);
 			});
 		});
 	});
