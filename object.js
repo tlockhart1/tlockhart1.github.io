@@ -12,8 +12,8 @@ class OBJECT{
 		this.collision = false;
         this.selected = false;
         this.solid = true;
-        this.xscale = 1;
-        this.yscale = 1;
+        this.xscale = 1.0;
+        this.yscale = 1.0;
         this.collision_indicator = false;
         this.color = color;
     }
@@ -24,8 +24,8 @@ class OBJECT{
         return this.solid;
     }
 	rescale(amount){
-		this.xscale *= amount;
-		this.yscale *= amount;
+		this.xscale = amount;
+		this.yscale = amount;
 	}
 	toggleSelected(){
 		return (this.selected = !this.selected);
