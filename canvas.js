@@ -346,6 +346,10 @@ function animate(currentTime){
 }
 
 function update_info(){
+	if(scalechanged){
+		scalechanged = false;
+		objects.forEach(object => object.rescale(objscale));
+	}
 	objects.forEach((obj, index) => {
 		updateObjectList(index, obj);
 	});
@@ -385,10 +389,6 @@ function path(){
 		canvas.width,
 		canvas.height
 	);	
-	if(scalechanged){
-		scalechanged = false;
-		objects.forEach(object => object.rescale(objscale));
-	}
 	objects.forEach((obj) => obj.draw(ctx));
 }
 
