@@ -11,6 +11,7 @@ let selected = null;
 let selected_obj = null;
 let notifications = false;
 let animating = false;
+let scalechanged = false;
 let objscale = 1.0;
 let track = {
 	"rectangle": false,
@@ -80,17 +81,16 @@ $(document).ready(() => {
 		}
 	});
 	// listen for scroll event to adjust object scale
-	$(document).ready(function(){
-		$('#dacanvas').bind('mousewheel', function(e){
-			if(e.originalEvent.wheelDelta > 0) {
-				objscale += 0.015;
-				console.log("increase, scale = " + objscale);
-			}
-			else{
-				objscale -= 0.015;
-				console.log("decrease, scale = " + objscale);
-			}
-		});
+	$('#dacanvas').bind('mousewheel', function(e){
+		if(e.originalEvent.wheelDelta > 0) {
+			objscale += 0.015;
+			console.log("increase, scale = " + objscale);
+		}
+		else{
+			objscale -= 0.015;
+			console.log("decrease, scale = " + objscale);
+		}
+		scalechanged = true;
 	});
 	$('#rectangle').click(() => selected = "rectangle");
 	$('#rcircle').click(() => {
@@ -384,7 +384,10 @@ function path(){
 		canvas.width,
 		canvas.height
 	);	
-	objects.forEach(object => object.rescale(objscale));
+	if(scalechanged){
+		scalechanged = false;
+		objects.forEach(object => object.rescale(objscale));
+	}
 	objects.forEach((obj) => obj.draw(ctx));
 }
 
