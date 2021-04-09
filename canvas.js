@@ -82,6 +82,8 @@ $(document).ready(() => {
 	});
 	// listen for scroll event to adjust object scale
 	$('#dacanvas').bind('mousewheel', function(e){
+		// I think I should go back to scaling the entire canvas, currently distance between objects
+		// are not scaling with the objects' new sizes
 		if(e.originalEvent.wheelDelta > 0) {
 			objscale += 0.15;
 			console.log("increase, scale = " + objscale);
