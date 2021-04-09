@@ -83,11 +83,12 @@ $(document).ready(() => {
 	// listen for scroll event to adjust object scale
 	$('#dacanvas').bind('mousewheel', function(e){
 		if(e.originalEvent.wheelDelta > 0) {
-			objscale += 0.55;
+			objscale += 0.15;
 			console.log("increase, scale = " + objscale);
 		}
 		else{
-			objscale -= 0.55;
+			objscale -= 0.15;
+			if(objscale <= 0) objscale = 0.15;
 			console.log("decrease, scale = " + objscale);
 		}
 		scalechanged = true;
