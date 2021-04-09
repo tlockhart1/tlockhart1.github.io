@@ -10,26 +10,26 @@ export class RECTANGLE extends OBJECT{
 		this.angular_speed = 2;
 	}
 	getWidth(){
-		return this.width;
+		return this.width * this.xscale;
 	}
 	getHeight(){
-		return this.height;
+		return this.height * this.yscale;
 	}
 	getRight(){
-		return this.x + (this.width * 0.5);
+		return this.x + (this.getWidth() * 0.5);
 	}
 	getLeft(){
-		return this.x - (this.width * 0.5);
+		return this.x - (this.getWidth() * 0.5);
 	}
 	getTop(){
-		return this.y - (this.height * 0.5);
+		return this.y - (this.getHeight() * 0.5);
 	}
 	getBottom(){
-		return this.y + (this.height * 0.5);
+		return this.y + (this.getHeight() * 0.5);
 	}
 	draw(ctx){
-		var ox = this.x - (this.width * 0.5);
-		var oy = this.y - (this.height * 0.5);
+		var ox = this.getLeft();
+		var oy = this.getTop();
 		if(this.collision && this.collision_indicator)
 			ctx.fillStyle = "red";
 		if(this.selected)
@@ -42,7 +42,7 @@ export class RECTANGLE extends OBJECT{
 		ctx.fillRect(ox, oy, this.width, this.height);
 		ctx.restore();
 		*/
-		ctx.fillRect(ox, oy, this.width * this.xscale, this.height * this.yscale);
+		ctx.fillRect(ox, oy, this.getWidth(), this.getHeight());
 		this.collision = false;
 		ctx.fillStyle = this.color;
     }
