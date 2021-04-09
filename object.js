@@ -23,11 +23,7 @@ class OBJECT{
     isSolid(){
         return this.solid;
     }
-	upscale(amount){
-		this.xscale *= amount;
-		this.yscale *= amount;
-	}
-	downscale(amount){
+	rescale(amount){
 		this.xscale *= amount;
 		this.yscale *= amount;
 	}
