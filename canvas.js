@@ -350,7 +350,20 @@ function animate(currentTime){
 function update_info(){
 	if(scalechanged){
 		scalechanged = false;
-		objects.forEach(object => object.rescale(objscale));
+		// old, scaling objects individually
+		//objects.forEach(object => object.rescale(objscale));
+
+		// I need to treat the canvas as only a viewport. The actual size of the environment will be different.
+		// prevent drawing if an object's x/y exceeds the size of the viewport, after taking the scale into
+		// consideration
+		// The viewpoint should always fill the entire window
+		ctx.scale(objscale, objscale);
+		if(objscale >= 1.0){
+			canvas.width *= objscale;
+			canvas.height *= objscale;
+		}
+		console.log("canvas width = " + canvas.width);
+		console.log("canvas height = " + canvas.height);
 	}
 	objects.forEach((obj, index) => {
 		updateObjectList(index, obj);
